@@ -1,66 +1,37 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sample Form</title>
-</head>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-            animation: bgColorChange 10s infinite alternate;
-            transition: background 1s ease-in-out;
-        }
-
-        @keyframes bgColorChange {
-            0% { background:rgb(112, 20, 23); }
-            25% { background:rgb(138, 207, 27); }
-            50% { background:rgb(49, 8, 37); }
-            75% { background:rgb(16, 103, 243); }
-            100% { background:rgb(243, 15, 15); }
-        }
-    </style>
-<body>
-     <h1>GRADE CALCULATOR</h1>
-    <form action="" method="POST">
-        <label>1st quarter</label> <input type="text" name="firstquarter"><br>
-		<label>2st quarter</label> <input type="text" name="secondquarter"><br>
-		<label>3st quarter</label> <input type="text" name="thirdquarter"><br>
-		<label>4st quarter</label> <input type="text" name="fourthquarter"><br>
-        <input type="submit" name="submit">
-       
-</form>
-
 <?php
-	$firstquarter = 98
-    $secondquarter = 95
-	$thirdquarter = 97
-    $fourthquarter = 96
+if (isset($_POST['submit'])) {
 
- $averageGrade = ($firstQuarter + $secondQuarter + $thirdQuarter + $fourQuarter)
+    $first_quarter = $_POST['1stquarter'];
+    $second_quarter = $_POST['2stquarter'];
+    $third_quarter = $_POST['3rdquarter'];
+    $fourth_quarter = $_POST['4thquarter'];
 
- if ($averageGrade >= 98 && $averageGrade <=96) {
-    echo "Your average grade is: " . $averageGrade;
-    echo "<br><br>OUTSTANDING!!!";
+    $averageGrade = ($first_quarter + $second_quarter + $third_quarter + $fourth_quarter) / 4;
 
- }elseif ($averageGrade >= 90 && $averageGrade <=94){
-    echo "Your average grade is: " . $averageGrade;
-    echo "<br><br>EXCELLENT!!!";
+if ($averageGrade >= 90 && $averageGrade <=100) {
+   echo "Average Grade: " . $averageGrade;
+   echo "<br><br>OUTSTANDING!!!";
+   echo "<br><br>Passed";
+
+}elseif ($averageGrade >= 85 && $averageGrade <=89){
+   echo "Average Grade: " . $averageGrade;
+   echo "<br><br>VERY SATISFACTORY!!!";
+   echo "<br><br>Passed";
 
 }elseif ($averageGrade >= 80 && $averageGrade <=84){
-    echo "Your average grade is: " . $averageGrade;
-    echo "<br><br>GOOD!!!";
+   echo "Average Grade: " . $averageGrade;
+   echo "<br><br>SATISFACTORY!!!";
+   echo "<br><br>Passed";
 
 }elseif ($averageGrade >= 75 && $averageGrade <=79){
-    echo "Your average grade is: " . $averageGrade;
-    echo "<br><br>NOT BAD!!!";
+   echo "Average Grade: " . $averageGrade;
+   echo "<br><br>FAIRLY SATISFACTORY!!!";
+   echo "<br><br>Passed";
 
-}elseif {
-    echo "Your average grade is: " . $averageGrade;
-    echo "<br><br>FAILED!!!";
-
+}elseif ( $averageGrade <=74) {
+   echo "Average Grade: " . $averageGrade;
+   echo "<br><br>DID NOT MEET EXPECTATIONS!!!";
+   echo "<br><br>Failed";
 }
-?>
-</body>
-</html>
+}
+   ?>
